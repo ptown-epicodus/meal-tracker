@@ -8,6 +8,7 @@ import { FoodItem } from './food-item.model';
     <h1>Meal Tracker</h1>
 
     <food-list [childFoodItemList]="masterFoodItemList" (editClickSender)="updateItem($event)"></food-list>
+    <edit-food-item [childSelectedItem]="selectedItem"></edit-food-item>
     <new-food-item (newItemSender)="addItem($event)"></new-food-item>
   </div>
   `
