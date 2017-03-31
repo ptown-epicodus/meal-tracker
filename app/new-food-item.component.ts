@@ -4,20 +4,28 @@ import { FoodItem } from './food-item.model';
 @Component({
   selector: 'new-food-item',
   template: `
-    <h2>Log new item</h2>
-    <div>
-      <label>Name:</label>
-      <input #newName placeholder="Name">
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <h1 class="panel-title">Log new item</h1>
     </div>
-    <div>
-      <label>Details:</label>
-      <input #newDetails placeholder="Details">
+    <div class="panel-body">
+      <div class="form-group">
+        <label>Name:</label>
+        <input #newName placeholder="Name" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Details:</label>
+        <input #newDetails placeholder="Details" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Calories</label>
+        <input #newCalories type="number" min="0" placeholder="0 Cal" class="form-control">
+      </div>
+      <div class="form-group">
+        <button (click)="submitForm(newName.value, newDetails.value, newCalories.value)" class="btn btn-success">Log</button>
+      </div>
     </div>
-    <div>
-      <label>Calories</label>
-      <input #newCalories type="number" min="0"> Cal
-    </div>
-    <button (click)="submitForm(newName.value, newDetails.value, newCalories.value)">Log</button>
+  </div>
   `
 })
 

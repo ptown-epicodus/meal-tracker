@@ -1,0 +1,21 @@
+#page-header h1 {
+  font-style: italic;
+  color: #ff5050;
+}
+
+#page-header {
+  background-image: url('http://static-28.sinclairstoryline.com/resources/media/16607ce5-f707-4520-964e-9d36ca82ccae-large16x9_GettyImages585296166.jpg?1487950664644');
+}
+
+.table > thead > tr {
+  background-color: CadetBlue;
+  text-decoration: underline;
+}
+
+.table-striped > tbody > tr:nth-of-type(even) {
+  background-color: #999999;
+}
+
+.table tr.selected-row {
+  color: red;
+}

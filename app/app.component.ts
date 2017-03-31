@@ -4,13 +4,13 @@ import { FoodItem } from './food-item.model';
 @Component({
   selector: 'app-root',
   template: `
-  <div class="container">
-    <h1>Meal Tracker</h1>
+    <div class="jumbotron" id="page-header">
+      <h1>Meal Tracker</h1>
+    </div>
 
-    <food-list [childFoodItemList]="masterFoodItemList" (editClickSender)="updateItem($event)"></food-list>
+    <food-list [childFoodItemList]="masterFoodItemList" [childSelectedItem]="selectedItem" (editClickSender)="updateItem($event)"></food-list>
     <edit-food-item [childSelectedItem]="selectedItem"></edit-food-item>
     <new-food-item (newItemSender)="addItem($event)"></new-food-item>
-  </div>
   `
 })
 
