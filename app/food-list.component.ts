@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FoodItem } from './food-item.model';
 
 @Component({
@@ -19,6 +19,7 @@ import { FoodItem } from './food-item.model';
           <td>Name</td>
           <td>Details</td>
           <td>Calories</td>
+          <td>Edit</td>
         </tr>
       </thead>
       <tbody>
@@ -26,6 +27,7 @@ import { FoodItem } from './food-item.model';
           <td>{{item.name}}</td>
           <td>{{item.details}}</td>
           <td>{{item.calories}} C</td>
+          <td><button (click)="editButtonClicked(item)">Edit</button></td>
         </tr>
       </tbody>
     </table>
@@ -34,9 +36,14 @@ import { FoodItem } from './food-item.model';
 
 export class FoodListComponent {
   @Input() childFoodItemList: FoodItem[];
+  @Output() editClickSender = new EventEmitter();
   filterByEnergy: string = 'all';
 
   onChange(optionFromMenu: string) {
     this.filterByEnergy = optionFromMenu;
+  }
+
+  editButtonClicked(item: FoodItem) {
+    this.editClickSender.emit(item);
   }
 }
