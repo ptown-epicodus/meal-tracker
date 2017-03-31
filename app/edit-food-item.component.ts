@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FoodItem } from './food-item.model';
 
 @Component({
@@ -21,6 +21,7 @@ import { FoodItem } from './food-item.model';
         <label>Calories</label>
         <input [(ngModel)]="childSelectedItem.calories" name="calories" type="number" min="0" placeholder="0 Cal" class="form-control">
       </div>
+      <p (click)="hideEditClicked()"><a>Hide</a></p>
     </div>
   </div>
   `
@@ -28,4 +29,9 @@ import { FoodItem } from './food-item.model';
 
 export class EditFoodItemComponent {
   @Input() childSelectedItem: FoodItem;
+  @Output() hideEditButtonClickedSender = new EventEmitter();
+
+  hideEditClicked() {
+    this.hideEditButtonClickedSender.emit(null);
+  }
 }

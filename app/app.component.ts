@@ -9,7 +9,7 @@ import { FoodItem } from './food-item.model';
     </div>
 
     <food-list [childFoodItemList]="masterFoodItemList" [childSelectedItem]="selectedItem" (editClickSender)="updateItem($event)"></food-list>
-    <edit-food-item [childSelectedItem]="selectedItem"></edit-food-item>
+    <edit-food-item [childSelectedItem]="selectedItem" (hideEditButtonClickedSender)="clearSelection()"></edit-food-item>
     <new-food-item (newItemSender)="addItem($event)"></new-food-item>
   `
 })
@@ -28,6 +28,10 @@ export class AppComponent {
 
   updateItem(item: FoodItem) {
     this.selectedItem = item;
+  }
+
+  clearSelection(arg: any) {
+    this.selectedItem = null;
   }
   // ************************************
 }
