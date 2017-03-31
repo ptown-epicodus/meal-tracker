@@ -4,6 +4,15 @@ import { FoodItem } from './food-item.model';
 @Component({
   selector: 'food-list',
   template: `
+    <div>
+      <label>Filter foods:</label>
+      <select (change)="onChange($event.target.value)">
+        <option value="all">All</option>
+        <option value="high">High-calorie</option>
+        <option value="low">Low-calorie</option>
+      </select>
+    </div>
+
     <table>
       <thead>
         <tr>
@@ -13,7 +22,7 @@ import { FoodItem } from './food-item.model';
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of childFoodItemList">
+        <tr *ngFor="let item of childFoodItemList | caloricContent:filterByEnergy">
           <td>{{item.name}}</td>
           <td>{{item.details}}</td>
           <td>{{item.calories}} C</td>
@@ -25,4 +34,9 @@ import { FoodItem } from './food-item.model';
 
 export class FoodListComponent {
   @Input() childFoodItemList: FoodItem[];
+  filterByEnergy: string = 'all';
+
+  onChange(optionFromMenu: string) {
+    this.filterByEnergy = optionFromMenu;
+  }
 }
