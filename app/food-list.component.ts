@@ -26,7 +26,7 @@ import { FoodItem } from './food-item.model';
         <tr *ngFor="let item of childFoodItemList | caloricContent:filterByEnergy">
           <td>{{item.name}}</td>
           <td>{{item.details}}</td>
-          <td>{{item.calories}} C</td>
+          <td>{{item.calories}} Cal</td>
           <td><button (click)="editButtonClicked(item)">Edit</button></td>
         </tr>
       </tbody>
